@@ -1,89 +1,46 @@
 document.getElementById('footprintForm').addEventListener('submit', function(event) {
     event.preventDefault();
-
-    const gpu = parseFloat(document.getElementById('gpu').value);
-    const hours = parseFloat(document.getElementById('hours').value);
+    // Calculate the carbon footprint here and update the result div
+    const gpuFactor = parseFloat(document.getElementById('gpu').value);
+    const trainingHours = parseFloat(document.getElementById('hours').value);
     const inferenceHours = parseFloat(document.getElementById('inferenceHours').value);
-    const cloudProvider = document.getElementById('cloudProvider').value;
 
-    // Carbon footprint calculation (example values)
-    const trainingFootprint = gpu * hours * 0.3; // kg CO2 per hour
-    const inferenceFootprint = gpu * inferenceHours * 0.1; // kg CO2 per hour
-    const totalFootprint = trainingFootprint + inferenceFootprint;
+    const co2Emission = (trainingHours + inferenceHours) * gpuFactor;
+    const energyConsumption = co2Emission * 0.5; // Example factor
+    const treesEquivalent = co2Emission * 0.01; // Example factor
+    const trashEquivalent = co2Emission * 0.02; // Example factor
 
-    // Energy consumption calculation (example values)
-    const energyConsumed = totalFootprint * 0.5; // kWh (example conversion)
+    document.getElementById('result').innerHTML = `
+        <h3>Results</h3>
+        <p>CO2 Emission: ${co2Emission.toFixed(2)} kg</p>
+        <p>Energy Consumption: ${energyConsumption.toFixed(2)} kWh</p>
+        <p>Trees Equivalent: ${treesEquivalent.toFixed(2)}</p>
+        <p>Trash Equivalent: ${trashEquivalent.toFixed(2)} kg</p>
+    `;
 
-    // Additional analogies
-    const trees = totalFootprint / 21.77; // Number of trees needed to absorb the CO2
-    const waste = totalFootprint / 2.68; // Amount of waste burned in kg to emit the same CO2
+    // Update the canvas for visual representation
+    const ctx = document.getElementById('summaryCanvas').getContext('2d');
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-    document.getElementById('result').innerText = `Total Carbon Footprint: ${totalFootprint.toFixed(2)} kg CO2`;
-    document.getElementById('analogy').innerText = `This is equivalent to driving a car for ${(totalFootprint / 0.25).toFixed(2)} kilometers.`;
-    document.getElementById('energy').innerText = `Energy Consumed: ${energyConsumed.toFixed(2)} kWh`;
-    document.getElementById('trees').innerText = `Equivalent to planting ${trees.toFixed(2)} trees.`;
-    document.getElementById('waste').innerText = `Equivalent to burning ${waste.toFixed(2)} kg of waste.`;
-
-    generateSummaryCanvas(totalFootprint, energyConsumed, trees, waste, cloudProvider);
-});
-
-document.getElementById('downloadButton').addEventListener('click', function() {
-    const canvas = document.getElementById('summaryCanvas');
-    const link = document.createElement('a');
-    link.download = 'carbon-footprint-summary.png';
-    link.href = canvas.toDataURL();
-    link.click();
-});
-
-function generateSummaryCanvas(totalFootprint, energyConsumed, trees, waste, cloudProvider) {
-    const canvas = document.getElementById('summaryCanvas');
-    const ctx = canvas.getContext('2d');
-
-    canvas.width = 600;
-    canvas.height = 600;
+    ctx.fillStyle = '#4CAF50';
+    ctx.fillRect(10, 10, 150, 150);
 
     ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = '16px Arial';
+    ctx.fillText('CO2:', 20, 50);
+    ctx.fillText(`${co2Emission.toFixed(2)} kg`, 20, 70);
+    ctx.fillText('Energy:', 20, 90);
+    ctx.fillText(`${energyConsumption.toFixed(2)} kWh`, 20, 110);
 
-    ctx.fillStyle = '#4CAF50';
-    ctx.font = '30px Arial';
-    ctx.fillText('AI Carbon Footprint Summary', 50, 50);
+    // Increment and update the report generated count
+    let reportCount = parseInt(localStorage.getItem('reportCount')) || 0;
+    reportCount += 1;
+    localStorage.setItem('reportCount', reportCount);
+    document.getElementById('reportCount').textContent = reportCount;
+});
 
-    ctx.fillStyle = '#000000';
-    ctx.font = '20px Arial';
-    ctx.fillText(`Total Carbon Footprint: ${totalFootprint.toFixed(2)} kg CO2`, 50, 100);
-    ctx.fillText(`Equivalent to driving ${(totalFootprint / 0.25).toFixed(2)} km`, 50, 150);
-    ctx.fillText(`Energy Consumed: ${energyConsumed.toFixed(2)} kWh`, 50, 200);
-    ctx.fillText(`Equivalent to planting ${trees.toFixed(2)} trees`, 50, 250);
-    ctx.fillText(`Equivalent to burning ${waste.toFixed(2)} kg of waste`, 50, 300);
-
-    ctx.fillStyle = '#4CAF50';
-    ctx.font = '24px Arial';
-    ctx.fillText('I will responsibly train and infer AI models.', 50, 400);
-    ctx.fillText(`Cloud Provider: ${cloudProvider}`, 50, 450);
-
-    // Add images or icons to make it more beautiful
-    const treeImg = new Image();
-    treeImg.src = 'trees.png'; // Ensure you have this image
-    treeImg.onload = function() {
-        ctx.drawImage(treeImg, 50, 500, 50, 50);
-    };
-
-    const wasteImg = new Image();
-    wasteImg.src = 'waste-.png'; // Ensure you have this image
-    wasteImg.onload = function() {
-        ctx.drawImage(wasteImg, 150, 500, 50, 50);
-    };
-
-    const energyImg = new Image();
-    energyImg.src = 'energy.png'; // Ensure you have this image
-    energyImg.onload = function() {
-        ctx.drawImage(energyImg, 250, 500, 50, 50);
-    };
-
-    const carImg = new Image();
-    carImg.src = 'car.png'; // Ensure you have this image
-    carImg.onload = function() {
-        ctx.drawImage(carImg, 350, 500, 50, 50);
-    };
-}
+// Set the initial report count from localStorage
+document.addEventListener('DOMContentLoaded', function() {
+    const reportCount = parseInt(localStorage.getItem('reportCount')) || 0;
+    document.getElementById('reportCount').textContent = reportCount;
+});

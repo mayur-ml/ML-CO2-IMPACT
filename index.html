@@ -51,7 +51,7 @@
 
                 <label for="cloudProvider">Select Cloud Provider:</label>
                 <select id="cloudProvider" name="cloudProvider">
-                    <option value="AWS">Independent</option>
+                    <option value="Independent">Independent</option>
                     <option value="AWS">AWS</option>
                     <option value="GCP">GCP</option>
                     <option value="Azure">Azure</option>
@@ -66,35 +66,117 @@
             <div class="summary">
                 <canvas id="summaryCanvas"></canvas>
                 <div class="summary-details">
-                    <p id="analogy"></p>
-                    <p id="energy"></p>
-                    <p id="trees"></p>
-                    <p id="waste"></p>
+                    <p id="analogy"><img src="https://example.com/car.png" alt="Car"> Car Equivalent</p>
+                    <p id="energy"><img src="https://example.com/environment.png" alt="Environment"> Energy Consumption</p>
+                    <p id="trees"><img src="https://example.com/environment.png" alt="Trees"> Trees Equivalent</p>
+                    <p id="waste"><img src="https://example.com/trash.png" alt="Trash"> Trash Equivalent</p>
                 </div>
             </div>
-            <button id="downloadButton">Download Summary</button>
+            <div class="counts">
+                <p>Visitors: <span id="visitorCount">0</span></p>
+                <p>Reports Generated: <span id="reportCount">0</span></p>
+            </div>
         </section>
+        <section class="developer-note">
+            <h2>Developer Note</h2>
+            <p>I am inspired by ML CO2 IMPACT  website to calculate the impact of my serious use of GPU ML training. I wanted to calculate that impact, <strong>but what was truly missing in that  website calculator is the interpretation of the CO2 impact for a normal human being</strong>. So, I have added analogies for a normal person to understand the fuel consumption equivalent and trash burning equivalent. Thanks again for visiting, and contact me if you have any suggestions or want to develop this further. The email is at the bottom below.</p>
+            <p>Thanks, Sincerely,<br>Mayur B. Ingole<br>Bangalore, India</p>
+        </section>
+        
+        
+        
         <section id="responsibility" class="responsibility">
-            <h2>There are things you can do</h2>
-            <p>With great computing power comes great responsibility.</p>
-            <h3>Choose Your Cloud Provider Wisely</h3>
-            <p>They don't all buy offsets, RECs or invest equally in clean energy sources. Read their sustainability commitments and make an informed choice.</p>
-            <h3>Choose Your Region</h3>
-            <p>Different regions are powered by different combinations of renewable and non-renewable energy. If regulations and legal aspects allow, select a more sustainable region.</p>
-            <h3>Buy Carbon Offsets</h3>
-            <p>Many platforms provide easy ways to offset your emissions. You can have a big impact by proposing offsetting within your organization. It is also worth doing in your personal life too, for instance by offsetting flights.</p>
-            <h3>Don't Do Grid Search</h3>
-            <p>Hyperparameter search is a great source of ML-related carbon emissions. If there is no literature to help you establish good values and you need to look for relevant ones, at least do it randomly, not via grid search.</p>
-            <h3>Choose Clean Energy</h3>
-            <p>Your organization may have a choice in their power supply. You may too. Choosing a cleaner and more sustainable source of energy will go far in decreasing your carbon impact.</p>
-            <h3>Push for More Transparency</h3>
-            <p>Include a dedicated section about the carbon emissions of your procedure whenever publishing work (be it a peer-reviewed paper or a blog post).</p>
+            <h2>Embrace the AI Revolution Responsibly</h2>
+            <p>The AI revolution is a cornerstone of progress and innovation. However, with great computing power comes great responsibility. We must ensure that our advancements in AI do not come at an unacceptable cost to the environment. Here are key practices to help us achieve this balance:</p>
+        
+            <h3>1. Choose Your Cloud Provider Wisely</h3>
+            <p>Not all cloud providers are equal in their commitment to sustainability. Some invest more in clean energy, purchase carbon offsets, and engage in environmentally friendly practices. Review their sustainability commitments carefully and choose a provider that aligns with your values.</p>
+        
+            <h3>2. Select the Most Sustainable Region</h3>
+            <p>Energy sources vary greatly between regions. If possible, choose a data center located in a region that relies more on renewable energy sources. This can significantly reduce the carbon footprint of your computations.</p>
+        
+            <h3>3. Offset Your Carbon Emissions</h3>
+            <p>Many platforms offer straightforward ways to purchase carbon offsets. Consider investing in offset projects to balance out your carbon footprint. You can also advocate for such practices within your organization and personal life, such as offsetting flights or other travel-related emissions.</p>
+        
+            <h3>4. Avoid Excessive Hyperparameter Tuning</h3>
+            <p>Grid search for hyperparameters can lead to significant carbon emissions due to the large number of experiments run. When possible, use more efficient methods such as random search or Bayesian optimization to minimize the computational resources required.</p>
+        
+            <h3>5. Opt for Clean Energy</h3>
+            <p>Wherever possible, choose energy sources that are clean and sustainable. This could mean selecting green energy options provided by your organization or advocating for renewable energy policies within your community.</p>
+        
+            <h3>6. Advocate for Transparency</h3>
+            <p>Push for transparency in reporting the carbon footprint of AI models. Include detailed emissions information in publications, reports, and blog posts. This practice not only raises awareness but also encourages others to adopt more sustainable practices.</p>
+        
+            <h3>7. Optimize Resource Utilization</h3>
+            <p>Ensure that your computing resources are used efficiently. Avoid idle or unnecessary computations and optimize your code to reduce the overall environmental impact. Responsible computing means not just the reduction of emissions but also avoiding wastage of valuable resources.</p>
+        
+            <p>By following these practices, we can support the advancement of AI while also preserving our environment for future generations. Together, let’s make sure our innovations are as sustainable as they are groundbreaking.</p>
         </section>
+        
+        <section class="paper">
+            <h2>Quantifying the Carbon Emissions of Machine Learning Research Paper</h2>
+            <p>For a deeper understanding of the environmental impact of machine learning, we recommend reading the research paper titled "<a href="https://arxiv.org/abs/1910.09700" target="_blank" rel="noopener noreferrer">Quantifying the Carbon Emissions of Machine Learning</a>" by Alexandre Lacoste, Alexandra Luccioni, Victor Schmidt, and Thomas Dandres. The paper provides insights into key factors affecting carbon emissions, including:</p>
+            <ul>
+                <li>The location of the server and its energy grid</li>
+                <li>The length of the training procedure</li>
+                <li>The hardware used for training</li>
+                <li>The paper introduces a Machine Learning Emissions Calculator to help understand these impacts</li>
+                <li>It also suggests concrete actions for individuals and organizations to reduce their carbon footprint</li>
+            </ul>
+        </section>
+        <section class="codecarbon">
+            <h2>CodeCarbon: Estimating and Tracking Carbon Emissions</h2>
+            <p>CodeCarbon is a Python package designed to estimate the carbon emissions of your computer programs. By calculating your hardware’s electricity consumption (GPU, CPU, RAM) and applying the carbon intensity of your region, CodeCarbon helps you understand the environmental impact of your computations.</p>
+            <p>Here’s a quick guide to get started:</p>
+            <h3>Quickstart 🚀</h3>
+            <h4>Installation 🔧</h4>
+            <p>Install CodeCarbon using one of the following methods:</p>
+            <ul>
+                <li>From PyPI repository: <code>pip install codecarbon</code></li>
+                <li>From Conda repository: <code>conda install -c conda-forge codecarbon</code></li>
+            </ul>
+        
+            <h4>Start to Estimate Your Impact 📏</h4>
+            <p>Initialize your experiment with:</p>
+            <pre><code>! codecarbon init</code></pre>
+            <p>Store the experiment ID in a .codecarbon.config file:</p>
+            <pre><code>[codecarbon]
+        log_level = DEBUG
+        save_to_api = True
+        experiment_id = 2bcbcbb8-850d-4692-af0d-76f6f36d79b2 #the experiment_id you get with init</code></pre>
+        
+            <h4>Monitoring Your Machine 💻</h4>
+            <p>Track emissions independently using:</p>
+            <pre><code>codecarbon monitor</code></pre>
+        
+            <h4>In Your Python Code 🐍</h4>
+            <p>Track emissions for specific functions with:</p>
+            <pre><code>from codecarbon import track_emissions
+        
+        @track_emissions()
+        def your_function_to_track():
+            # your code</code></pre>
+        
+            <p>For more options and detailed usage, refer to the <a href="https://github.com/mlco2/codecarbon" target="_blank" rel="noopener noreferrer">CodeCarbon Documentation</a>.</p>
+        </section>
+        
+        
     </main>
     <footer>
-        <p>&copy; 2024 AI Carbon Footprint Calculator</p>
-        <p>Contact - myringole@gmail.com</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <a class="github-button" href="https://github.com/mayur-ml/ML-CO2-IMPACT" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star mayur-ml/ML-CO2-IMPACT on GitHub">Star</a>
+            </div>
+            <div class="footer-section">
+                <p>&copy; 2024 AI Carbon Footprint Calculator</p>
+                <p>Contact: myringole@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <p>Say hi to me on  <a href="https://www.linkedin.com/in/mayur-ingole-415386170/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+            </div>
+        </div>
     </footer>
+    <script src="https://buttons.github.io/buttons.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
