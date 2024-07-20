@@ -88,8 +88,8 @@ form button:hover {
 }
 
 .summary canvas {
-    width: 100%;
-    max-width: 350px;
+    width: 300%;
+    max-width: 550px;
     height: auto;
 }
 
@@ -162,7 +162,7 @@ footer p {
     }
 
     .summary canvas {
-        max-width: 100%;
+        max-width: 200%;
     }
 
     footer .footer-content {
@@ -189,7 +189,7 @@ footer p {
     }
 
     .summary canvas {
-        width: 100%;
+        width: 200%;
         height: auto;
     }
 

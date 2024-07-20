@@ -64,17 +64,32 @@
         <section class="analysis">
             <h2>Environmental Impact</h2>
             <div class="summary">
-                <canvas id="summaryCanvas"></canvas>
                 <div class="summary-details">
-                    <p id="analogy"><img src="https://example.com/car.png" alt="Car"> Car Equivalent</p>
-                    <p id="energy"><img src="https://example.com/environment.png" alt="Environment"> Energy Consumption</p>
-                    <p id="trees"><img src="https://example.com/environment.png" alt="Trees"> Trees Equivalent</p>
-                    <p id="waste"><img src="https://example.com/trash.png" alt="Trash"> Trash Equivalent</p>
+                    <p id="analogy">
+                        <img src="car.png" alt="Car" style="width: 34px; height: 34px;">
+                        Equivalent to driving a car for <span id="miles">X</span> kilometers
+                    </p>
+                    <p id="energy">
+                        <img src="energy.png" alt="Energy Consumption" style="width: 34px; height: 34px;">
+                        Equivalent to consuming <span id="kwh">X</span> kWh of energy
+                    </p>
+                    <p id="trees">
+                        <img src="tree.png" alt="Trees" style="width: 34px; height: 34px;">
+                        Equivalent number of trees needed to offset that amount of CO2: <span id="treesCount">X</span> trees
+                    </p>
+                    <p id="waste">
+                        <img src="trash.png" alt="Trash" style="width: 34px; height: 34px;">
+                        Equivalent to burning <span id="trash">X</span> kg of trash
+                    </p>
                 </div>
+        
+            
+            
+            
             </div>
             <div class="counts">
-                <p>Visitors: <span id="visitorCount">0</span></p>
-                <p>Reports Generated: <span id="reportCount">0</span></p>
+                
+                <p>Reports Generated Till Now: <span id="reportCount">0</span></p>
             </div>
         </section>
         <section class="developer-note">
