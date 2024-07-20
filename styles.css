@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    background-image: url('co2img.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+header {
+    background-color: rgba(76, 175, 80, 0.9);
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav {
+    margin-top: 1em;
+}
+
+header nav a {
+    color: white;
+    margin: 0 1em;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    width: 90%;
+    max-width: 600px;
+    margin-top: 6em; /* Adjusted margin-top to create space for fixed header */
+    margin-bottom: 2em;
+    padding: 1em;
+}
+
+.calculator, .analysis, .responsibility {
+    margin-bottom: 2em;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+    border-radius: 5px;
+    padding: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #4CAF50;
+}
+
+h3 {
+    color: #4CAF50;
+    margin-top: 1em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 0.5em 0 0.2em;
+}
+
+input, select, button {
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+footer {
+    background-color: rgba(76, 175, 80, 0.9);
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+.summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 1em 0;
+    background-color: rgba(255, 255, 255, 0.599); /* Slightly transparent white */
+    border-radius: 10px;
+    padding: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.summary-details {
+    text-align: center;
+}
+
+canvas {
+    margin-bottom: 1em;
+}
